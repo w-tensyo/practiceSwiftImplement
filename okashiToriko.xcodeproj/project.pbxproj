@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A2478F286E489387EDE968DB /* Pods_okashiToriko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB001A3A9BD66F989FF88F6 /* Pods_okashiToriko.framework */; };
+		C437AF50248B5FB600D03D04 /* OkashiItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C437AF4F248B5FB600D03D04 /* OkashiItems.swift */; };
+		C437AF52248BF8B600D03D04 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C437AF51248BF8B600D03D04 /* DetailViewController.swift */; };
+		C484CCBD2480CB47004E796D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCBC2480CB47004E796D /* AppDelegate.swift */; };
+		C484CCBF2480CB47004E796D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCBE2480CB47004E796D /* SceneDelegate.swift */; };
+		C484CCC12480CB47004E796D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCC02480CB47004E796D /* ViewController.swift */; };
+		C484CCC42480CB47004E796D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C484CCC22480CB47004E796D /* Main.storyboard */; };
+		C484CCC62480CB4B004E796D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C484CCC52480CB4B004E796D /* Assets.xcassets */; };
+		C484CCC92480CB4B004E796D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C484CCC72480CB4B004E796D /* LaunchScreen.storyboard */; };
+		C484CCD22480D656004E796D /* OkashiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCD02480D656004E796D /* OkashiTableViewCell.swift */; };
+		C484CCD32480D656004E796D /* OkashiTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C484CCD12480D656004E796D /* OkashiTableViewCell.xib */; };
+		C484CCD82480EC35004E796D /* OkashiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCD72480EC35004E796D /* OkashiData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		28291A3BB565339E11BF2171 /* Pods-okashiToriko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-okashiToriko.release.xcconfig"; path = "Target Support Files/Pods-okashiToriko/Pods-okashiToriko.release.xcconfig"; sourceTree = "<group>"; };
+		5CB001A3A9BD66F989FF88F6 /* Pods_okashiToriko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_okashiToriko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C437AF4F248B5FB600D03D04 /* OkashiItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiItems.swift; sourceTree = "<group>"; };
+		C437AF51248BF8B600D03D04 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C484CCB92480CB47004E796D /* okashiToriko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = okashiToriko.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C484CCBC2480CB47004E796D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C484CCBE2480CB47004E796D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C484CCC02480CB47004E796D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C484CCC32480CB47004E796D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C484CCC52480CB4B004E796D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C484CCC82480CB4B004E796D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C484CCCA2480CB4B004E796D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C484CCD02480D656004E796D /* OkashiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiTableViewCell.swift; sourceTree = "<group>"; };
+		C484CCD12480D656004E796D /* OkashiTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OkashiTableViewCell.xib; sourceTree = "<group>"; };
+		C484CCD72480EC35004E796D /* OkashiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiData.swift; sourceTree = "<group>"; };
+		D76D216C56007A665F3EF7DE /* Pods-okashiToriko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-okashiToriko.debug.xcconfig"; path = "Target Support Files/Pods-okashiToriko/Pods-okashiToriko.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C484CCB62480CB47004E796D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2478F286E489387EDE968DB /* Pods_okashiToriko.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27CE59E702E99F1F5D23FF96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CB001A3A9BD66F989FF88F6 /* Pods_okashiToriko.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42A1B86E8FA9FEC8844CE5D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D76D216C56007A665F3EF7DE /* Pods-okashiToriko.debug.xcconfig */,
+				28291A3BB565339E11BF2171 /* Pods-okashiToriko.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C484CCB02480CB47004E796D = {
+			isa = PBXGroup;
+			children = (
+				C484CCBB2480CB47004E796D /* okashiToriko */,
+				C484CCBA2480CB47004E796D /* Products */,
+				42A1B86E8FA9FEC8844CE5D9 /* Pods */,
+				27CE59E702E99F1F5D23FF96 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C484CCBA2480CB47004E796D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C484CCB92480CB47004E796D /* okashiToriko.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C484CCBB2480CB47004E796D /* okashiToriko */ = {
+			isa = PBXGroup;
+			children = (
+				C484CCD62480EBF0004E796D /* Controller */,
+				C484CCD52480EBEA004E796D /* View */,
+				C484CCD42480EBE4004E796D /* Model */,
+				C484CCCA2480CB4B004E796D /* Info.plist */,
+			);
+			path = okashiToriko;
+			sourceTree = "<group>";
+		};
+		C484CCD42480EBE4004E796D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C484CCD72480EC35004E796D /* OkashiData.swift */,
+				C437AF4F248B5FB600D03D04 /* OkashiItems.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C484CCD52480EBEA004E796D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C484CCC22480CB47004E796D /* Main.storyboard */,
+				C484CCC52480CB4B004E796D /* Assets.xcassets */,
+				C484CCC72480CB4B004E796D /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C484CCD62480EBF0004E796D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C484CCBC2480CB47004E796D /* AppDelegate.swift */,
+				C484CCBE2480CB47004E796D /* SceneDelegate.swift */,
+				C484CCD02480D656004E796D /* OkashiTableViewCell.swift */,
+				C484CCD12480D656004E796D /* OkashiTableViewCell.xib */,
+				C484CCC02480CB47004E796D /* ViewController.swift */,
+				C437AF51248BF8B600D03D04 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C484CCB82480CB47004E796D /* okashiToriko */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C484CCCD2480CB4B004E796D /* Build configuration list for PBXNativeTarget "okashiToriko" */;
+			buildPhases = (
+				B085094A59208E7913A18657 /* [CP] Check Pods Manifest.lock */,
+				C484CCB52480CB47004E796D /* Sources */,
+				C484CCB62480CB47004E796D /* Frameworks */,
+				C484CCB72480CB47004E796D /* Resources */,
+				2A05ECC711D92125F5F0F45B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = okashiToriko;
+			productName = okashiToriko;
+			productReference = C484CCB92480CB47004E796D /* okashiToriko.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C484CCB12480CB47004E796D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "takaaki watanabe";
+				TargetAttributes = {
+					C484CCB82480CB47004E796D = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+				};
+			};
+			buildConfigurationList = C484CCB42480CB47004E796D /* Build configuration list for PBXProject "okashiToriko" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C484CCB02480CB47004E796D;
+			productRefGroup = C484CCBA2480CB47004E796D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C484CCB82480CB47004E796D /* okashiToriko */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C484CCB72480CB47004E796D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C484CCC92480CB4B004E796D /* LaunchScreen.storyboard in Resources */,
+				C484CCC62480CB4B004E796D /* Assets.xcassets in Resources */,
+				C484CCD32480D656004E796D /* OkashiTableViewCell.xib in Resources */,
+				C484CCC42480CB47004E796D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A05ECC711D92125F5F0F45B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-okashiToriko/Pods-okashiToriko-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-okashiToriko/Pods-okashiToriko-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-okashiToriko/Pods-okashiToriko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B085094A59208E7913A18657 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-okashiToriko-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C484CCB52480CB47004E796D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C484CCC12480CB47004E796D /* ViewController.swift in Sources */,
+				C484CCBD2480CB47004E796D /* AppDelegate.swift in Sources */,
+				C484CCD22480D656004E796D /* OkashiTableViewCell.swift in Sources */,
+				C484CCBF2480CB47004E796D /* SceneDelegate.swift in Sources */,
+				C484CCD82480EC35004E796D /* OkashiData.swift in Sources */,
+				C437AF50248B5FB600D03D04 /* OkashiItems.swift in Sources */,
+				C437AF52248BF8B600D03D04 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C484CCC22480CB47004E796D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C484CCC32480CB47004E796D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C484CCC72480CB4B004E796D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C484CCC82480CB4B004E796D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C484CCCB2480CB4B004E796D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C484CCCC2480CB4B004E796D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C484CCCE2480CB4B004E796D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D76D216C56007A665F3EF7DE /* Pods-okashiToriko.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8D7N94594;
+				INFOPLIST_FILE = okashiToriko/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.tensyo.dr.okashiToriko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C484CCCF2480CB4B004E796D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28291A3BB565339E11BF2171 /* Pods-okashiToriko.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M8D7N94594;
+				INFOPLIST_FILE = okashiToriko/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.tensyo.dr.okashiToriko;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C484CCB42480CB47004E796D /* Build configuration list for PBXProject "okashiToriko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C484CCCB2480CB4B004E796D /* Debug */,
+				C484CCCC2480CB4B004E796D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C484CCCD2480CB4B004E796D /* Build configuration list for PBXNativeTarget "okashiToriko" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C484CCCE2480CB4B004E796D /* Debug */,
+				C484CCCF2480CB4B004E796D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C484CCB12480CB47004E796D /* Project object */;
+}
