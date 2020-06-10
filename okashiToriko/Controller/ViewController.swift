@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate, XMLParserDelegate {
 
     
+    @IBOutlet weak var serchIcon: UIImageView!
     var commentStringArray = [String]()
     //XMLParserのインスタンスを作成する
     var parser = XMLParser()
@@ -27,6 +28,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //serchIconをタップ可能にする
+        serchIcon.isUserInteractionEnabled = true
         
         hiddenMaskView.isHidden = true
         // 表示位置を設定（画面中央）
@@ -67,34 +71,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     //キーボードの「検索」ボタンをタップした時の処理
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if searchTextField.text == ""{
-            alertView(titleString: "文字を入力してください")
-        }else{
-        
-            startIndicator()
-            okashiItems.removeAll()
-        
-            if indicator.isAnimating == true{
-            }
-            let entryKeyWord = searchTextField.text!
-            let encodeEntryKeyWord: String = entryKeyWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=\(encodeEntryKeyWord)&max=20&order=r"
-        
-            let url:URL = URL(string: urlString)!
-        
-            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-                let parser: XMLParser? = XMLParser(data: data!)
-                DispatchQueue.main.sync {
-                    parser!.delegate = self
-                    parser!.parse()
-                    self.stopIndicator()
-                }
-            })
-            //タスク開始
-            task.resume()
-            }
-        searchTextField.endEditing(true)
+        okashiSearch()
+
         return true
     }
     
@@ -206,9 +184,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         let indexNumber = indexPath.row
     
         
-        //【将来的に消す】okashiAreaの中身を確認するためにログを出力
-        print(okashiItems[indexNumber].okashiArea)
-        
         detailVC.nameString = okashiItems[indexNumber].okashiName!
         detailVC.makerString =
             okashiItems[indexNumber].okashiMaker!
@@ -232,7 +207,6 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             detailVC.image = "noimage"
         }
         
-        print(detailVC.sellArea)
     
         
     }
@@ -259,6 +233,44 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         alert.addAction(cancel)
         
         present(alert,animated: true,completion: nil)
+    }
+    
+    
+    //serachIconをタップしても検索できるようにする
+    @IBAction func serchButton(_ sender: Any) {
+        okashiSearch()
+    }
+    
+    //キーボードとアイコンから検索ができるように実装するため、
+    //検索処理をメソッドで一つにまとめる
+    func okashiSearch(){
+        if searchTextField.text == ""{
+            alertView(titleString: "文字を入力してください")
+        }else{
+        
+            startIndicator()
+            okashiItems.removeAll()
+        
+            if indicator.isAnimating == true{
+            }
+            let entryKeyWord = searchTextField.text!
+            let encodeEntryKeyWord: String = entryKeyWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=\(encodeEntryKeyWord)&max=20&order=r"
+        
+            let url:URL = URL(string: urlString)!
+        
+            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                let parser: XMLParser? = XMLParser(data: data!)
+                DispatchQueue.main.sync {
+                    parser!.delegate = self
+                    parser!.parse()
+                    self.stopIndicator()
+                }
+            })
+            //タスク開始
+            task.resume()
+            }
+        searchTextField.endEditing(true)
     }
 }
 

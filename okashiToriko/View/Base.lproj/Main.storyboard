@@ -34,9 +34,13 @@
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="サーチアイコン" translatesAutoresizingMaskIntoConstraints="NO" id="XhK-wK-bdY">
                                         <rect key="frame" x="342" y="0.0" width="24" height="32"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="Qlw-XR-HYr"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ZUA-Ye-m0L" appends="YES" id="akX-Fk-PLt"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -44,10 +48,6 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4DL-iB-vtc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKn-mO-txY">
                                 <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <subviews>
@@ -69,6 +69,10 @@
                                     <constraint firstItem="Dv8-lY-nW0" firstAttribute="centerY" secondItem="mKn-mO-txY" secondAttribute="centerY" id="KxJ-ek-MAe"/>
                                     <constraint firstItem="Dv8-lY-nW0" firstAttribute="centerX" secondItem="mKn-mO-txY" secondAttribute="centerX" id="TVQ-18-OfN"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4DL-iB-vtc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yYf-Wv-eVP">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
@@ -102,9 +106,15 @@
                         <outlet property="okashiTableView" destination="Ysj-wa-yrk" id="ebC-51-INj"/>
                         <outlet property="resultZeroView" destination="mKn-mO-txY" id="hcd-57-LXK"/>
                         <outlet property="searchTextField" destination="YBU-h4-rHw" id="ZVT-S7-0D9"/>
+                        <outlet property="serchIcon" destination="XhK-wK-bdY" id="gcT-Yr-agi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ZUA-Ye-m0L">
+                    <connections>
+                        <action selector="serchButton:" destination="BYZ-38-t0r" id="GVq-Z4-4hI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="120.53571428571428"/>
         </scene>
@@ -117,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お菓子の名前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaO-lE-1Xu" userLabel="okashiName">
-                                <rect key="frame" x="16" y="88" width="382" height="40"/>
+                                <rect key="frame" x="16" y="68" width="382" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1Oz-XW-40l"/>
                                 </constraints>
@@ -204,6 +214,7 @@
                             <constraint firstItem="Juj-am-pvu" firstAttribute="top" secondItem="RH5-bE-ffZ" secondAttribute="bottom" constant="16" id="aaF-uB-349"/>
                             <constraint firstItem="8Ob-LO-GJU" firstAttribute="trailing" secondItem="Juj-am-pvu" secondAttribute="trailing" constant="16" id="dQq-zx-oFK"/>
                             <constraint firstItem="8Ob-LO-GJU" firstAttribute="trailing" secondItem="SIM-nA-7eg" secondAttribute="trailing" constant="16" id="hXh-c3-lq5"/>
+                            <constraint firstItem="GaO-lE-1Xu" firstAttribute="top" secondItem="8Ob-LO-GJU" secondAttribute="top" constant="24" id="hwx-f8-Dqr"/>
                             <constraint firstItem="8Ob-LO-GJU" firstAttribute="trailing" secondItem="GaO-lE-1Xu" secondAttribute="trailing" constant="16" id="oaf-9Y-70r"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ob-LO-GJU"/>
