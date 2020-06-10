@@ -9,14 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate, XMLParserDelegate {
-    
-    //画面遷移で値を渡すための変数を用意
-    var name:String = ""
-    var maker:String = ""
-    var sellArea:String = ""
-    var price:String = ""
-    var comment:String = ""
-    var image:String = ""
+
     
     var commentStringArray = [String]()
     //XMLParserのインスタンスを作成する
@@ -27,6 +20,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     @IBOutlet weak var okashiTableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var hiddenMaskView: UIView!
+    @IBOutlet weak var resultZeroView: UIView!
+    
+    
     //ローディング中に表示するActiveIndicatoreViewを定義
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     override func viewDidLoad() {
@@ -40,6 +36,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         // インジケーターの色を設定（青色）
         indicator.color = UIColor(red: 44/255, green: 169/255, blue: 225/255, alpha: 1)
         
+        resultZeroView.isHidden = true
         indicator.isHidden = true
         // インジケーターを View に追加
         
@@ -70,29 +67,33 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     //キーボードの「検索」ボタンをタップした時の処理
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        startIndicator()
-        okashiItems.removeAll()
         
-        if indicator.isAnimating == true{
-            print("インジケータ動いているはずですよ")
-        }
-        print("1個目のprint\(Date())")
-        let entryKeyWord = searchTextField.text!
-        let encodeEntryKeyWord: String = entryKeyWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=\(encodeEntryKeyWord)&max=20&order=r"
+        if searchTextField.text == ""{
+            alertView(titleString: "文字を入力してください")
+        }else{
         
-        let url:URL = URL(string: urlString)!
+            startIndicator()
+            okashiItems.removeAll()
         
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
-            let parser: XMLParser? = XMLParser(data: data!)
-            DispatchQueue.main.sync {
-                parser!.delegate = self
-                parser!.parse()
-                self.stopIndicator()
+            if indicator.isAnimating == true{
             }
-        })
-        //タスク開始
-        task.resume()
+            let entryKeyWord = searchTextField.text!
+            let encodeEntryKeyWord: String = entryKeyWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=\(encodeEntryKeyWord)&max=20&order=r"
+        
+            let url:URL = URL(string: urlString)!
+        
+            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                let parser: XMLParser? = XMLParser(data: data!)
+                DispatchQueue.main.sync {
+                    parser!.delegate = self
+                    parser!.parse()
+                    self.stopIndicator()
+                }
+            })
+            //タスク開始
+            task.resume()
+            }
         searchTextField.endEditing(true)
         return true
     }
@@ -104,6 +105,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     //表示したいセルの数。
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        print(okashiItems.count)
+        if okashiItems.count == 0{
+            alertView(titleString: "検索結果が0件です")
+            resultZeroView.isHidden = false
+        }else{
+            resultZeroView.isHidden = true
+        }
         return okashiItems.count
     }
     
@@ -158,6 +166,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
             case "area":
                 lastItem.okashiArea = string
+                print(lastItem.okashiArea!)
             default :break
             
             }
@@ -167,13 +176,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         let joinedComment = commentStringArray.joined()
-        let lastItem = self.okashiItems[self.okashiItems.count - 1]
-        lastItem.okashiComment = joinedComment
+        if self.okashiItems.count != 0{
+            let lastItem = self.okashiItems[self.okashiItems.count - 1]
+            lastItem.okashiComment = joinedComment
 
         
         
-        self.currentElementname = nil
-        
+            self.currentElementname = nil
+        }
     }
     
     func parserDidEndDocument(_ parser: XMLParser) {
@@ -182,55 +192,63 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     //セルをタップした時のアクションを実装
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let indexNumber = indexPath.row
         
-        name = okashiItems[indexNumber].okashiName!
-        maker = okashiItems[indexNumber].okashiMaker!
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier:  "DetailVC") as! DetailViewController
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        
+    
+        let indexNumber = indexPath.row
+    
+        
+        print(okashiItems[indexNumber].okashiArea)
+        
+        detailVC.nameString = okashiItems[indexNumber].okashiName!
+        detailVC.makerString =
+            okashiItems[indexNumber].okashiMaker!
         if okashiItems[indexNumber].okashiArea != nil{
-            sellArea = "1"
+            detailVC.sellArea = "1"
         }else{
-            sellArea = "0"
+            detailVC.sellArea = "0"
         }
         if okashiItems[indexNumber].okashiPrice == nil{
-            price = "---"
+            detailVC.price = "---"
         }else{
-            price = okashiItems[indexNumber].okashiPrice!
+            detailVC.price = okashiItems[indexNumber].okashiPrice!
         }
-        comment = okashiItems[indexNumber].okashiComment!
-        image = okashiItems[indexNumber].okashiImage!
+        detailVC.commentString = okashiItems[indexNumber].okashiComment!
+        if okashiItems[indexNumber].okashiImage != nil{
+            detailVC.image = okashiItems[indexNumber].okashiImage!
+        }else{
+            detailVC.image = "noimage"
+        }
         
-        print(sellArea)
-        //画面遷移
-        self.performSegue(withIdentifier: "detailOkashiSegue", sender: self)
-        //タップしたセルの角パラメータをUserDefaultsに一時的に格納
-        
-    }
+        print(detailVC.sellArea)
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detailOkashiSegue"{
-            let detailOkashiVC = segue.destination as! DetailViewController
-            detailOkashiVC.nameString = name
-            detailOkashiVC.makerString = maker
-            detailOkashiVC.price = price
-            detailOkashiVC.commentString = comment
-            detailOkashiVC.image = image
-            detailOkashiVC.sellArea = sellArea
-        }
+        
     }
+
 
     func startIndicator(){
         indicator.isHidden = false
         hiddenMaskView.isHidden = false
         indicator.startAnimating()
-
-        print("インジケータ表示開始")
     }
     
     func stopIndicator(){
         indicator.stopAnimating()
         indicator.isHidden = true
         hiddenMaskView.isHidden = true
-        print("インジケータ表示終了！")
+    }
+    
+    func alertView(titleString: String){
+        
+        let alert = UIAlertController(title: titleString, message: nil, preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        
+        present(alert,animated: true,completion: nil)
     }
 }
 

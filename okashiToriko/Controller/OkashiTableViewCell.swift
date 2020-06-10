@@ -38,14 +38,19 @@ class OkashiTableViewCell: UITableViewCell {
         self.makerNameLabel.text = okashiItems.okashiMaker
         
         
-        self.okashiImageView.image = getImageByUrl(url: okashiItems.okashiImage!)
-        
+        if okashiItems.okashiImage == nil{
+            self.okashiImageView.image = UIImage(named: "noimage")
+        }else{
+            self.okashiImageView.image = getImageByUrl(url: okashiItems.okashiImage!)
+        }
         if okashiItems.okashiPrice == nil{
             self.okashiPriceLabel.text = "価格不明"
         }else{
             self.okashiPriceLabel.text = "\(okashiItems.okashiPrice!) 円"
         }
-        if okashiItems.okashiArea != nil{
+        print("\(okashiItems.okashiName!)のokashiAreaの中身は：\(okashiItems.okashiArea)")
+        if okashiItems.okashiArea == nil{
+        }else{
             self.sellAreaIcon.image = UIImage(named: "area")
         }
     

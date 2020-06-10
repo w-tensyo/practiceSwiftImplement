@@ -34,14 +34,17 @@ class DetailViewController: UIViewController {
 
         okashiName.text = nameString
         okashiMakerName.text = makerString
-        print(sellArea)
         if sellArea == "0" {
             okashiSellArea.text = ""
         }else{
             okashiSellArea.text = "地域限定"
         }
         okashiDetail.text = commentString
-        okashiImage.image = getImageByUrl(url:image)
+        if image != "noimage"{
+            okashiImage.image = getImageByUrl(url:image)
+        }else{
+            okashiImage.image = UIImage(named: "noimage")
+        }
         
         okashiPrice.text = "\(price) 円"
         
