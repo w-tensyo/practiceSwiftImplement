@@ -154,6 +154,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             case "image":
                 lastItem.okashiImage = string
             case "comment":
+                //comment内に<p><br>タグなどが混在しているため、それらを取り除くための処理
                 if string == "<" || string == "p"{
                     
                 }else if string == ">" || string == "br"{
@@ -161,12 +162,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }else if string == "/p"{
 
                 }else{
+                    //不要なタグ単位で分離してしまうcommentタグを一つにつなげる
+                    //commentStringArray配列に、分裂したcomment一つ一つをappendする
                     commentStringArray.append(string)
                 }
 
             case "area":
                 lastItem.okashiArea = string
-                print(lastItem.okashiArea!)
             default :break
             
             }
@@ -175,13 +177,13 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        let joinedComment = commentStringArray.joined()
+        
+        //検索結果が0件だった場合を考慮して、条件分岐でハンドリング
         if self.okashiItems.count != 0{
+            //分裂したcommentを格納している配列、commentStringArrayをjoinedメソッドで結合。一つのString変数に格納
+            let joinedComment = commentStringArray.joined()
             let lastItem = self.okashiItems[self.okashiItems.count - 1]
             lastItem.okashiComment = joinedComment
-
-        
-        
             self.currentElementname = nil
         }
     }
@@ -193,22 +195,30 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     //セルをタップした時のアクションを実装
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //detailVCに遷移先のviewControllerを定義
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier:  "DetailVC") as! DetailViewController
+        
+        //navigationControllerを継承しているので、この方法で画面遷移（つまりSegueを使わない）
         self.navigationController?.pushViewController(detailVC, animated: true)
         
-    
+        //タップした配列の番号を管理するindexPath.rowをindexNumber変数に代入
+        //※長端になるのを阻止
         let indexNumber = indexPath.row
     
         
+        //【将来的に消す】okashiAreaの中身を確認するためにログを出力
         print(okashiItems[indexNumber].okashiArea)
         
         detailVC.nameString = okashiItems[indexNumber].okashiName!
         detailVC.makerString =
             okashiItems[indexNumber].okashiMaker!
+        
+        //DetailViewController内で、地域限定の場合に固定文言を表示したい。
+        //そのために、okashiAreaの中身がnilでなければ
         if okashiItems[indexNumber].okashiArea != nil{
-            detailVC.sellArea = "1"
+            detailVC.sellArea = Bool(true)
         }else{
-            detailVC.sellArea = "0"
+            detailVC.sellArea = Bool(false)
         }
         if okashiItems[indexNumber].okashiPrice == nil{
             detailVC.price = "---"

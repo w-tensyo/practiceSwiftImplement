@@ -1,0 +1,6 @@
+framework module Pods_okashiToriko {
+  umbrella header "Pods-okashiToriko-umbrella.h"
+
+  export *
+  module * { export * }
+}

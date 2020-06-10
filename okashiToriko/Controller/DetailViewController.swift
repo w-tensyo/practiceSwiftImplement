@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
     
     var nameString:String = ""
     var makerString:String = ""
-    var sellArea:String = ""
+    var sellArea:Bool?
     var image:String = ""
     var price:String = ""
     var commentString:String = ""
@@ -34,10 +34,10 @@ class DetailViewController: UIViewController {
 
         okashiName.text = nameString
         okashiMakerName.text = makerString
-        if sellArea == "0" {
-            okashiSellArea.text = ""
-        }else{
+        if sellArea! {
             okashiSellArea.text = "地域限定"
+        }else{
+            okashiSellArea.text = ""
         }
         okashiDetail.text = commentString
         if image != "noimage"{
