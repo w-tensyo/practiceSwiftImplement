@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate, XMLParserDelegate {
 
+    @IBOutlet weak var sortSelectButtonLabel: UIBarButtonItem!
     
     @IBOutlet weak var serchIcon: UIImageView!
     var commentStringArray = [String]()
@@ -23,11 +24,19 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     @IBOutlet weak var hiddenMaskView: UIView!
     @IBOutlet weak var resultZeroView: UIView!
     
+    //リクエスト時にアイテムソート順を指定するための変数を用意
+    //初期値は古い順で呼びたいので、aに設定
+    var sortItemSelecter:String = "a"
     
     //ローディング中に表示するActiveIndicatoreViewを定義
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //navigationbar右側のボタンの初期表示を指定
+        
+        sortSelectButtonLabel.title = "古い順"
         
         //serchIconをタップ可能にする
         serchIcon.isUserInteractionEnabled = true
@@ -47,7 +56,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         view.addSubview(indicator)
         startIndicator()
         //XMLパース
-        let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=fo&max=2&order=r"
+        let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=fo&max=2&order=a"
         let url:URL = URL(string: urlString)!
         
         
@@ -255,7 +264,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             }
             let entryKeyWord = searchTextField.text!
             let encodeEntryKeyWord: String = entryKeyWord.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-            let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=\(encodeEntryKeyWord)&max=20&order=r"
+            let urlString = "https://www.sysbird.jp/webapi/?apikey=guest&keyword=\(encodeEntryKeyWord)&max=20&order=\(sortItemSelecter)"
+            print("今のURLは:\(urlString)")
         
             let url:URL = URL(string: urlString)!
         
@@ -271,6 +281,21 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             task.resume()
             }
         searchTextField.endEditing(true)
+    }
+
+
+    //ソート順を指定するためのnavigationItemのボタン
+    @IBAction func sortSelectButton(_ sender: Any) {
+        if sortSelectButtonLabel.title == "古い順" {
+            sortItemSelecter = "r"
+            sortSelectButtonLabel.title = "ランダム"
+        }else if sortSelectButtonLabel.title == "ランダム"{
+            sortItemSelecter = "d"
+            sortSelectButtonLabel.title = "新しい順"
+        }else if sortSelectButtonLabel.title == "新しい順"{
+            sortItemSelecter = "a"
+            sortSelectButtonLabel.title = "古い順"
+        }
     }
 }
 

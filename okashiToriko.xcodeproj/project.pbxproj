@@ -10,6 +10,7 @@
 		A2478F286E489387EDE968DB /* Pods_okashiToriko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CB001A3A9BD66F989FF88F6 /* Pods_okashiToriko.framework */; };
 		C437AF50248B5FB600D03D04 /* OkashiItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C437AF4F248B5FB600D03D04 /* OkashiItems.swift */; };
 		C437AF52248BF8B600D03D04 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C437AF51248BF8B600D03D04 /* DetailViewController.swift */; };
+		C437EC122491025A00A5B1AB /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C437EC112491025A00A5B1AB /* SearchDetailViewController.swift */; };
 		C484CCBD2480CB47004E796D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCBC2480CB47004E796D /* AppDelegate.swift */; };
 		C484CCBF2480CB47004E796D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCBE2480CB47004E796D /* SceneDelegate.swift */; };
 		C484CCC12480CB47004E796D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CCC02480CB47004E796D /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		5CB001A3A9BD66F989FF88F6 /* Pods_okashiToriko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_okashiToriko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C437AF4F248B5FB600D03D04 /* OkashiItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiItems.swift; sourceTree = "<group>"; };
 		C437AF51248BF8B600D03D04 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C437EC112491025A00A5B1AB /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		C484CCB92480CB47004E796D /* okashiToriko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = okashiToriko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C484CCBC2480CB47004E796D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C484CCBE2480CB47004E796D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				C484CCD12480D656004E796D /* OkashiTableViewCell.xib */,
 				C484CCC02480CB47004E796D /* ViewController.swift */,
 				C437AF51248BF8B600D03D04 /* DetailViewController.swift */,
+				C437EC112491025A00A5B1AB /* SearchDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				C484CCBF2480CB47004E796D /* SceneDelegate.swift in Sources */,
 				C484CCD82480EC35004E796D /* OkashiData.swift in Sources */,
 				C437AF50248B5FB600D03D04 /* OkashiItems.swift in Sources */,
+				C437EC122491025A00A5B1AB /* SearchDetailViewController.swift in Sources */,
 				C437AF52248BF8B600D03D04 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
